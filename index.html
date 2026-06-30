@@ -11,22 +11,45 @@
       background: black;
       color: white;
       font-family: Arial, sans-serif;
+    }
+
+    .header {
       padding: 40px;
     }
 
     h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 42px;
     }
 
     p {
-      color: #aaa;
+      color: #999;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
     }
   </style>
 </head>
 
 <body>
-  <h1>My Photography</h1>
-  <p>Welcome to my visual archive.</p>
+
+  <div class="header">
+    <h1>My Photography</h1>
+    <p>Visual archive</p>
+  </div>
+
+  <div class="gallery">
+    <img src="x2498201208.jpg">
+  </div>
+
 </body>
 </html>
