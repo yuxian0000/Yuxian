@@ -36,16 +36,34 @@
   display: block;
   width: fit-content;
   color: #444;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   text-decoration: none;
 }
 
+    .archive-title {
+  color: black;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 10px 0 8px 0;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 6px 0;
+  color: #444;
+  font-size: 10px;
+}
+
+#archive-links {
+  display: block;
+}
+
     .fragment-link:first-of-type {
-  margin-top: 18px;
+  margin-top: 0px;
 }
     .fragment-link + .fragment-link {
-  margin-top: 8px;
+  margin-top: 6px;
 }
     .fragment-link.active {
   border-bottom: 1px solid #444;
@@ -92,9 +110,16 @@
   <h1>Photographs</h1>
   <p>鱼线</p>
 
-  <a href="fragments.html" class="fragment-link active">Chapter I</a>
+  <p class="divider">-</p>
 
+  <p class="archive-title" onclick="toggleArchive()">
+  &lt;Personal Archive&gt;
+</p>
+
+  <div id="archive-links">
+  <a href="fragments.html" class="fragment-link active">Chapter I</a>
   <a href="places.html" class="fragment-link">Chapter II</a>
+</div>
 </div>
 
   <div class="gallery">
@@ -127,5 +152,16 @@
     <img src="270.jpg">
   </div>
 
+  <script>
+function toggleArchive() {
+  const links = document.getElementById('archive-links');
+
+  if (links.style.display === 'none') {
+    links.style.display = 'block';
+  } else {
+    links.style.display = 'none';
+  }
+}
+</script>
 </body>
 </html>
