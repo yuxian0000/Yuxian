@@ -49,6 +49,14 @@
   cursor: pointer;
 }
 
+    #archive-icon {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+    
 .divider {
   margin: 6px 0;
   color: #444;
@@ -56,7 +64,15 @@
 }
 
 #archive-links {
-  display: block;
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+#archive-links.collapsed {
+  max-height: 0;
+  opacity: 0;
 }
 
     .fragment-link:first-of-type {
@@ -66,7 +82,7 @@
   margin-top: 6px;
 }
     .fragment-link.active {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 0;
   line-height: 1;
 }
@@ -113,7 +129,7 @@
   <p class="divider">-</p>
 
   <p class="archive-title" onclick="toggleArchive()">
-  &lt;Personal Archive&gt;
+  <span id="archive-icon">⌄</span> &lt;Personal Archive&gt;
 </p>
 
   <div id="archive-links">
@@ -155,11 +171,14 @@
   <script>
 function toggleArchive() {
   const links = document.getElementById('archive-links');
+  const icon = document.getElementById('archive-icon');
 
-  if (links.style.display === 'none') {
-    links.style.display = 'block';
+  links.classList.toggle('collapsed');
+
+  if (links.classList.contains('collapsed')) {
+    icon.textContent = '›';
   } else {
-    links.style.display = 'none';
+    icon.textContent = '⌄';
   }
 }
 </script>
