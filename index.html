@@ -39,8 +39,13 @@
   font-size: 9px;
   font-weight: 600;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
 }
 
+    .fragment-link:hover {
+  border-bottom: 1px solid #d6d6d6;
+}
     .archive-title {
   color: black;
   font-size: 10px;
@@ -80,11 +85,6 @@
 }
     .fragment-link + .fragment-link {
   margin-top: 6px;
-}
-    .fragment-link.active {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0;
-  line-height: 1;
 }
 
     .gallery {
@@ -133,7 +133,7 @@
 </p>
 
   <div id="archive-links">
-  <a href="fragments.html" class="fragment-link active">Chapter I</a>
+  <a href="fragments.html" class="fragment-link">Chapter I</a>
   <a href="places.html" class="fragment-link">Chapter II</a>
 </div>
 </div>
