@@ -53,14 +53,6 @@
   margin: 22px 0 8px 0;
   cursor: pointer;
 }
-
-    #archive-icon {
-  display: inline-block;
-  margin-right: 5px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-}
     
 .divider {
   margin: 6px 0;
@@ -130,7 +122,7 @@
 
 
   <p class="archive-title" onclick="toggleArchive()">
-  <span id="archive-icon">›</span> &lt;Personal Archive&gt;
+  Personal Archive
 </p>
 
   <div id="archive-links" class="collapsed">
@@ -174,15 +166,8 @@
   <script>
 function toggleArchive() {
   const links = document.getElementById('archive-links');
-  const icon = document.getElementById('archive-icon');
 
   links.classList.toggle('collapsed');
-
-  if (links.classList.contains('collapsed')) {
-    icon.textContent = '›';
-  } else {
-    icon.textContent = '⌄';
-  }
 }
 </script>
 </body>
