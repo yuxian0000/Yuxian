@@ -92,6 +92,14 @@
   width: 56vw;
   height: auto;
   display: block;
+  opacity: 1;
+  transition: opacity 6s ease;
+  cursor: pointer;
+}
+
+.home-image img.fade-out {
+  opacity: 0;
+  cursor: default;
 }
     .gallery {
   display: flex;
@@ -191,6 +199,10 @@ function toggleArchive() {
 
   links.classList.toggle('collapsed');
 }
+
+document.querySelector('.home-image img').addEventListener('click', function() {
+  this.classList.add('fade-out');
+});
 </script>
 </body>
 </html>
