@@ -166,18 +166,16 @@
   const counter = document.querySelector('.photo-counter');
 
   let currentIndex = 0;
-  let scrollTimer;
+  let ticking = false;
 
   function updateCounter() {
-    const galleryRect = gallery.getBoundingClientRect();
-    const galleryCenter = galleryRect.left + galleryRect.width / 2;
+    const galleryCenter = gallery.scrollLeft + gallery.clientWidth / 2;
 
     let closestIndex = 0;
     let closestDistance = Infinity;
 
     images.forEach((img, index) => {
-      const rect = img.getBoundingClientRect();
-      const imageCenter = rect.left + rect.width / 2;
+      const imageCenter = img.offsetLeft + img.offsetWidth / 2;
       const distance = Math.abs(imageCenter - galleryCenter);
 
       if (distance < closestDistance) {
@@ -185,29 +183,24 @@
         closestIndex = index;
       }
     });
-    
-    const rect = images[closestIndex].getBoundingClientRect();
-    const imageCenter = rect.left + rect.width / 2;
-    const distanceFromCenter = Math.abs(imageCenter - galleryCenter);
 
-    const snapZone = window.innerWidth * 0.08;
-
-    if (distanceFromCenter <= snapZone && closestIndex !== currentIndex) {
+    if (closestIndex !== currentIndex) {
       currentIndex = closestIndex;
       counter.textContent = `${currentIndex + 1}/${images.length}`;
     }
+
+    ticking = false;
   }
 
   gallery.addEventListener('scroll', function() {
-    clearTimeout(scrollTimer);
-
-    scrollTimer = setTimeout(function() {
-      updateCounter();
-    }, 180);
+    if (!ticking) {
+      window.requestAnimationFrame(updateCounter);
+      ticking = true;
+    }
   });
 
   window.addEventListener('resize', updateCounter);
-
+  window.addEventListener('load', updateCounter);
 </script>
   
 </body>
