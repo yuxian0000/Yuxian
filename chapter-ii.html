@@ -109,5 +109,50 @@
     <img src="Places-150.jpg">
   </div>
 
+  <div class="photo-counter">1/0</div>
+
+  <script>
+  const gallery = document.querySelector('.gallery');
+  const images = gallery.querySelectorAll('img');
+  const counter = document.querySelector('.photo-counter');
+
+  let currentIndex = 0;
+  let ticking = false;
+
+  function updateCounter() {
+    const galleryCenter = gallery.scrollLeft + gallery.clientWidth / 2;
+
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    images.forEach((img, index) => {
+      const imageCenter = img.offsetLeft + img.offsetWidth / 2;
+      const distance = Math.abs(imageCenter - galleryCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    if (closestIndex !== currentIndex) {
+      currentIndex = closestIndex;
+      counter.textContent = `${currentIndex + 1}/${images.length}`;
+    }
+
+    ticking = false;
+  }
+
+  gallery.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateCounter);
+      ticking = true;
+    }
+  });
+
+  window.addEventListener('resize', updateCounter);
+  window.addEventListener('load', updateCounter);
+</script>
+
 </body>
 </html>
