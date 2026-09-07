@@ -52,6 +52,17 @@
   flex: 0 0 auto;
   display: block;
 }
+
+    .photo-counter {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 1000;
+  color: #444;
+  font-size: 9px;
+  font-weight: 400;
+}
+    
 @media (max-width: 768px) {
   .gallery {
     height: 100vh;
@@ -80,6 +91,12 @@
   z-index: 1000;
   padding: 10px 10px 0 10px;
 }  
+  .photo-counter {
+  right: 20px;
+  bottom: 20px;
+  font-size: 8px;
+  font-weight: 400;
+}
 }
   </style>
 </head>
@@ -109,7 +126,7 @@
     <img src="Places-150.jpg">
   </div>
 
-  <div class="photo-counter">1/0</div>
+  <div class="photo-counter">1/16</div>
 
   <script>
   const gallery = document.querySelector('.gallery');
