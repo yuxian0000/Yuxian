@@ -94,6 +94,22 @@
       margin-top: 6px;
     }
 
+    .project-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.project-images img {
+  width: 40vw;
+  height: auto;
+  display: block;
+}
+    
     @media (max-width: 768px) {
       p {
         font-size: 12px;
@@ -139,6 +155,11 @@
 
   </div>
 
+  <div class="project-images">
+  <img src="ruins-010.jpg">
+  <img src="ruins-020.jpg">
+</div>
+  
   <script>
     function toggleArchive() {
       const links = document.getElementById('archive-links');
