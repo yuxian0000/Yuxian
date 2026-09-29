@@ -1,3 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Just Fear Time</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      position: fixed;
+      top: 40px;
+      left: 40px;
+      z-index: 1000;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    p {
+      color: #444;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .fragment-link {
+      display: block;
+      width: fit-content;
+      color: #444;
+      font-size: 9px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease;
+    }
+
+    .fragment-link:hover {
+      border-bottom: 1px solid #d6d6d6;
+    }
+
+    .archive-title {
+      color: black;
+      font-size: 10px;
+      font-weight: 600;
+      margin: 22px 0 8px 0;
+      cursor: pointer;
+    }
+
+    .projects-title {
+      margin-top: 0;
+    }
+
+    .projects-space {
+      height: 3px;
+    }
+
+    #archive-links:not(.collapsed) + .projects-space {
+      height: 8px;
+    }
+
+    #archive-links,
+    #project-links {
+      max-height: 500px;
+      overflow: hidden;
+      opacity: 1;
+      margin: 0;
+      padding: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    #archive-links.collapsed,
+    #project-links.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .fragment-link:first-of-type {
+      margin-top: 0px;
+    }
+
+    .fragment-link + .fragment-link {
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 12px;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        background: transparent;
+        z-index: 1000;
+        padding: 10px 10px 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+
+    <h1>Photographs</h1>
+
+    <p>鱼线</p>
+
+    <p class="archive-title" onclick="toggleArchive()">
+      Personal Archive
+    </p>
+
+    <div id="archive-links" class="collapsed">
+      <a href="chapter-i.html" class="fragment-link">Chapter I</a>
+      <a href="chapter-ii.html" class="fragment-link">Chapter II</a>
+    </div>
+
+    <div class="projects-space"></div>
+
+    <p class="archive-title projects-title" onclick="toggleProjects()">
+      Projects
+    </p>
+
+    <div id="project-links" class="collapsed">
+      <a href="i-just-fear-time.html" class="fragment-link">I Just Fear Time</a>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleArchive() {
+      const links = document.getElementById('archive-links');
+
+      links.classList.toggle('collapsed');
+    }
+
+    function toggleProjects() {
+      const links = document.getElementById('project-links');
+
+      links.classList.toggle('collapsed');
+    }
+  </script>
+
+</body>
 </html>
